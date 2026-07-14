@@ -12,10 +12,24 @@ typedef struct s_stack
     struct s_stack  *prev;       // Aponta para o elemento acima
 }   t_stack;
 
+typedef struct s_program
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	int		size_a;
+	int		size_b;
+}	t_program;
+
+
 void	sa(t_stack **stack_a);
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	ra(t_stack **stack_a);
 void	rra(t_stack **stack_a);
+
+void	sb(t_stack **stack_b);
+void	pb(t_stack **stack_b, t_stack **stack_a);
+void	rb(t_stack **stack_b);
+void	rrb(t_stack **stack_b);
 
 t_stack	*stack_new(int value);
 void	stack_add_back(t_stack **stack, t_stack *new_node);

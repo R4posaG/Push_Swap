@@ -14,3 +14,20 @@ t_stack	*stack_new(int value)
 	new_node->prev = NULL;
 	return (new_node);
 }
+
+void	free_stack(t_stack **stack)
+{
+	t_stack	*next_node;
+	t_stack	*current;
+
+	if (!stack || !*stack)
+		return ;
+	current = *stack;
+	while (current)
+	{
+		next_node = current->next;
+		free(current);
+		current = next_node;
+	}
+	*stack = NULL;
+}
