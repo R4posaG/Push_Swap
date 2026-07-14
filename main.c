@@ -110,16 +110,22 @@ int	main(int argc, char **argv)
 	program.size_a = 0;
 	program.size_b = 0;
 
-	if (argc > 1)
+	if (argc < 2)
+		return ;
+	i = 1;
+	while (argv[i])
 	{
-		i = 0;
-		while (i < argc - 1)
-		{
-			numbers[i] = ft_atoi(argv[i + 1]);
-			i++;
-		}
+		create_node(argv[i]);
+		i++;
 	}
 
+
+	i = 0;
+	while (i < argc - 1)
+	{
+		numbers[i] = ft_atoi(argv[i + 1]);
+		i++;
+	}
 
 
 	i = 0;
