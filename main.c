@@ -101,8 +101,14 @@ int	ft_disorder(int	*numbers, double len)
 
 int	main(int argc, char **argv)
 {
+	t_program	program;
 	int	numbers[argc - 1];
 	int i;
+
+	program.stack_a = NULL;
+	program.stack_b = NULL;
+	program.size_a = 0;
+	program.size_b = 0;
 
 	if (argc > 1)
 	{
@@ -125,5 +131,8 @@ int	main(int argc, char **argv)
 	printf("\n%d%%\n", ft_disorder(numbers, argc - 1));
 	printf("%f%%\n", subject_disorder(numbers, argc - 1));
 	printf("%f%%\n", ft_disorder2(numbers, argc - 1));
+
+	free_stack(&program.stack_a);
+	free_stack(&program.stack_b);
 	return (0);
 }
