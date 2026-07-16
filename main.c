@@ -123,6 +123,16 @@ int	main(int argc, char **argv)
 	i = 0;
 	while (i < argc - 1)
 	{
+		if (!ft_isdigit(argv[i + 1]))
+		{
+			ft_printf("Invalid argument type!")
+			return (0);
+		}
+		i++;
+	}
+	i = 0;
+	while (i < argc - 1)
+	{
 		numbers[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}
