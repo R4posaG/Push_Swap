@@ -21,7 +21,7 @@ char	*get_next_line(int fd)
 				break ;
 			buffer[fd][bytes_read] = '\0';
 		}
-		next_line = ft_strjoin(next_line, buffer[fd]);
+		next_line = join_buffer(next_line, buffer[fd]);
 		if (!next_line)
 			return (NULL);
 		update_buffer(buffer[fd]);

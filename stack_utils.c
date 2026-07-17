@@ -1,7 +1,7 @@
 #include "push_swap.h"
 
 // Cria um novo node na memória com os ponteiros inicializados a NULL
-static t_stack	*create_node(int value)
+t_stack	*create_node(int value)
 {
 	t_stack	*new_node;
 
@@ -18,13 +18,13 @@ static t_stack	*create_node(int value)
 void	stack_add_back(t_stack **stack, int value)
 {
 	t_stack	*new_node;
-	t_stack *current;
+	// t_stack *current;
 
 	new_node = create_node(value);
-	if (!node)
+	if (!new_node)
 	{
-		node->prev = NULL;
-		*stack = node;
+		new_node->prev = NULL;
+		*stack = new_node;
 		return ;
 	}
 }

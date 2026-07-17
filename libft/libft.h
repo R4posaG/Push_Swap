@@ -18,6 +18,7 @@
 # include <stdint.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdarg.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -266,7 +267,7 @@ void	print_ptr(uintptr_t addr, int *len);
 char	*get_next_line(int fd);
 size_t	line_length(char const *s);
 int		has_newline(char const *s);
-char	*ft_strjoin(char *s1, char const *s2);
+char	*join_buffer(char *s1, char const *s2);
 void	update_buffer(char *buffer);
 
 #endif

@@ -42,7 +42,7 @@ static void	str_copy(char *str, char const *s, size_t len)
 	}
 }
 
-char	*ft_strjoin(char *s1, char const *s2)
+char	*join_buffer(char *s1, char const *s2)
 {
 	char	*str;
 	size_t	len1;
