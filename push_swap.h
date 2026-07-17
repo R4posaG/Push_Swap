@@ -33,7 +33,7 @@ void	rb(t_stack **stack_b);
 void	rrb(t_stack **stack_b);
 
 t_stack	*create_node(int value);
-void	stack_add_back(t_stack **stack, int value);
+void	stack_add_back(t_stack **stack, t_stack *new_node);
 void	free_stack(t_stack **stack);
 int		stack_size(t_stack *stack);
 

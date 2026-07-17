@@ -15,18 +15,16 @@ t_stack	*create_node(int value)
 	return (new_node);
 }
 
-void	stack_add_back(t_stack **stack, int value)
+void	stack_add_back(t_stack **stack, t_stack *new_node)
 {
-	t_stack	*new_node;
-	// t_stack *current;
+	t_stack *current;
 
-	new_node = create_node(value);
 	if (!new_node)
-	{
-		new_node->prev = NULL;
-		*stack = new_node;
 		return ;
-	}
+	current = *stack->next;
+	while (*current)
+		current = *stack->next;
+	*stack = new_node;
 }
 
 void	free_stack(t_stack **stack)
