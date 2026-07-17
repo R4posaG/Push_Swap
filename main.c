@@ -53,59 +53,68 @@ int	ft_disorder(int	*numbers, double len)
 	return (disorder);
 }
 
+long	ft_atol(const char *str)
+{
+	long	sign;
+	long	result;
+
+	sign = 1;
+	result = 0;
+	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + (*str - '0');
+		str++;
+	}
+	return (result * sign);
+}
+
 int	main(int argc, char **argv)
 {
-	// t_program	program;
-	int	numbers[argc - 1];
+	t_program	program;
 	int i;
 
-	/*
+	if (argc < 2)
+		return (0);
 	program.stack_a = NULL;
 	program.stack_b = NULL;
 	program.size_a = 0;
 	program.size_b = 0;
+	if (!parse_arguments(argc, argv, &program))
+	{
+		write(2, "Error\n", 6);
+		free_stack(&program.stack_a);
+		return (1);
+	}
+	program.size_a = stack_size(program.stack_a);
+	
+	// TODO: Add your sorting logic here
+	// if (!is_sorted(program.stack_a))
+	//     sort_stack(&program);
 
-	if (argc < 2)
-		return (0);
+	free_stack(&program.stack_a);
+	return (0);
+
+
 	i = 1;
 	while (argv[i])
 	{
-		create_node(ft_atoi(argv[i]));
+		stack_add_back(&program.stack_a, create_node(ft_atoi(argv[i])));
 		i++;
 	}
-	*/
 
-	/*
-	i = 0;
-	while (i < argc - 1)
-	{
-		if (!ft_isdigit(argv[i + 1]))
-		{
-			ft_printf("Invalid argument type!")
-			return (0);
-		}
-		i++;
-	}
-	*/
 
-	i = 0;
-	while (i < argc - 1)
-	{
-		numbers[i] = ft_atoi(argv[i + 1]);
-		i++;
-	}
-	i = 0;
-	while (i < argc - 1)
-	{
-		ft_printf("%d ", numbers[i]);
-		i++;
-	}
 	ft_printf("\n%d%%\n", ft_disorder(numbers, argc - 1));
 	ft_printf("%d%%\n", subject_disorder(numbers, argc - 1));
 
-	/*
 	free_stack(&program.stack_a);
 	free_stack(&program.stack_b);
-	*/
 	return (0);
 }

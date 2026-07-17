@@ -19,12 +19,18 @@ void	stack_add_back(t_stack **stack, t_stack *new_node)
 {
 	t_stack *current;
 
-	if (!new_node)
+	if (!stack || !new_node)
 		return ;
-	current = *stack->next;
-	while (*current)
-		current = *stack->next;
-	*stack = new_node;
+	if (!*stack)
+	{
+		*stack = new_node;
+		return ;
+	}
+	current = *stack;
+	while (current->next)
+		current = current->next;
+	current->next = new_node;
+	new_node->prev = current;
 }
 
 void	free_stack(t_stack **stack)

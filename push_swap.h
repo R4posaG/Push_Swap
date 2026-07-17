@@ -21,7 +21,6 @@ typedef struct s_program
 	int		size_b;
 }	t_program;
 
-
 void	sa(t_stack **stack_a);
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	ra(t_stack **stack_a);
