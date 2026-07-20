@@ -1,29 +1,30 @@
-double subject_disorder(int *numbers, int len)
+double subject_disorder(t_stack **stack_a)
 {
-	int i;
-	int j;
-	int total_pairs = 0;
-	int mistakes = 0;
+	int mistakes;
+	int total_pairs;
+	t_stack	*current;
+	t_stack *next;
 
-	i = 0;
-	if (len <= 1)
+	if (!stack_a || !*stack_a || !(*stack_a)->next)
 		return (0.0);
-	while (i < len - 1)
+	mistakes = 0;
+	total_pairs = 0;
+	current = *stack_a;
+	while (current->next)
 	{
-		j = i + 1;
-		while (j < len - 1)
+		next = current->next;
+		while (next)
 		{
 			total_pairs++;
-			if (numbers[i] > numbers[j])
+			if (current->value > next->value)
 				mistakes++;
-			j++;
+			next = next->next;
 		}
-		i++;
+		current = current->next;
 	}
-	// Proteção contra divisão por zero (se já estiver ordenado, desordem é 0.0)
+	// Proteção contra divisão por zero (se já estiver ordenado a desordem é 0.0)
 	if (total_pairs == 0 || mistakes == 0)
 		return (0.0);
-	// Cast feito antes da divisão para preservar os números decimais
 	return ((double)mistakes / total_pairs);
 }
 
