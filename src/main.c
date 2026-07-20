@@ -1,29 +1,6 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-long	ft_atol(const char *str)
-{
-	long	sign;
-	long	result;
-
-	sign = 1;
-	result = 0;
-	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign = -1;
-		str++;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + (*str - '0');
-		str++;
-	}
-	return (result * sign);
-}
-
 int	main(int argc, char **argv)
 {
 	t_program	program;
@@ -40,7 +17,7 @@ int	main(int argc, char **argv)
 		free_stack(&program.stack_a);
 		return (1);
 	}
-	program.size_a = stack_size(program.stack_a);
+	// program.size_a = stack_size(program.stack_a);
 	
 	// TODO: Add your sorting logic here
 	// if (!is_sorted(program.stack_a))
