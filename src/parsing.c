@@ -1,3 +1,15 @@
+static int	is_space(char c)
+{
+	return (c == ' ' || (c >= '\t' && c <= '\r'));
+}
+
+static int is_valid(char *arg)
+{
+	char *num;
+
+	num = ft_split(arg, ' ');
+}
+
 static long	ft_atol(const char *str)
 {
 	long	sign;
@@ -21,7 +33,7 @@ static long	ft_atol(const char *str)
 	return (result * sign);
 }
 
-int	parse_arguments(int argc, char **argv, t_program program)
+int	parse_arguments(int argc, char **argv, t_program *program)
 {
 	int i;
 	t_stack	*new_node;
@@ -32,8 +44,8 @@ int	parse_arguments(int argc, char **argv, t_program program)
 		new_node = create_node(ft_atol(argv[i]));
 		if (!new_node)
 			return (0);
-		stack_add_back(&program.stack_a, new_node);
-		program.size_a++;
+		stack_add_back(&program->stack_a, new_node);
+		program->size_a++;
 		i++;
 	}
 	return (1);
