@@ -5,9 +5,18 @@ static int	is_space(char c)
 
 static int is_valid(char *arg)
 {
-	char *num;
+	int i;
 
-	num = ft_split(arg, ' ');
+	i = 0;
+	while (is_space(agr[i]))
+		i++;
+	if (arg[i] == '-')
+		i++;	
+	while (is_digit(arg[i]))
+		i++;
+	if (!is_digit(arg[i]))
+		return (0);
+	return (1);
 }
 
 static long	ft_atol(const char *str)
@@ -41,6 +50,9 @@ int	parse_arguments(int argc, char **argv, t_program *program)
 	i = 1;
 	while (argv[i])
 	{
+		if (!is_valid(argv[i]))
+			return (0);
+		
 		new_node = create_node(ft_atol(argv[i]));
 		if (!new_node)
 			return (0);
