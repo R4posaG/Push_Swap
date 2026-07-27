@@ -7,10 +7,10 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	program.stack_a = NULL;
-	program.stack_b = NULL;
-	program.size_a = 0;
-	program.size_b = 0;
+	program->stack_a = NULL;
+	program->stack_b = NULL;
+	program->size_a = 0;
+	program->size_b = 0;
 	if (!parse_arguments(argc, argv, &program))
 	{
 		write(2, "Error\n", 6);
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	// if (!is_sorted(program.stack_a))
 	//     sort_stack(&program);
 
-	free_stack(&program.stack_a);
-	free_stack(&program.stack_b);
+	free_stack(&program->stack_a);
+	free_stack(&program->stack_b);
 	return (0);
 }
