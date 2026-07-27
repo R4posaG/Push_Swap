@@ -1,4 +1,4 @@
-***This project has been created as part of the 42 curriculum by hjacinto and -------.***
+***This project has been created as part of the 42 curriculum by hjacinto and ajoao.***
 
 # Push_Swap
 
