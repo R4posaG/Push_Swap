@@ -10,6 +10,14 @@ It sorts data on a stack, with a limited set of instructions, using the lowest p
 
 ---
 
+#### ajoao
+- Operations.
+
+#### hjacinto
+- Parsing.
+
+---
+
 ### Parsing
 
 This program only accepts valid positive integers as an argument.
