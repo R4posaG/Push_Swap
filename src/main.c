@@ -17,6 +17,13 @@ int	main(int argc, char **argv)
 		free_stack(&program.stack_a);
 		return (1);
 	}
+	if (has_duplicates(&program->stack_a))
+	{
+		write(2, "Duplicates\n", 11);
+		free_stack(&program.stack_a);
+		return (1);
+	}
+		
 	// program.size_a = stack_size(program.stack_a);
 	
 	// TODO: Add your sorting logic here

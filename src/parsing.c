@@ -1,16 +1,11 @@
-static int	is_space(char c)
-{
-	return (c == ' ' || (c >= '\t' && c <= '\r'));
-}
-
 static int is_valid(char *arg)
 {
 	int i;
 
 	i = 0;
-	while (is_space(agr[i]))
+	while (arg[i] == ' ' || (arg[i] >= '\t' && arg[i] <= '\r'))
 		i++;
-	if (arg[i] == '-')
+	if (arg[i] == '-' || *str == '+')
 		i++;	
 	while (is_digit(arg[i]))
 		i++;
@@ -44,7 +39,10 @@ static long	ft_atol(const char *str)
 
 int	parse_arguments(int argc, char **argv, t_program *program)
 {
-	int i;
+	int		i;
+	int		j;
+	long	num;
+	char    **args;
 	t_stack	*new_node;
 
 	i = 1;
@@ -52,12 +50,27 @@ int	parse_arguments(int argc, char **argv, t_program *program)
 	{
 		if (!is_valid(argv[i]))
 			return (0);
-		
-		new_node = create_node(ft_atol(argv[i]));
-		if (!new_node)
-			return (0);
-		stack_add_back(&program->stack_a, new_node);
-		program->size_a++;
+		args = ft_split(argv[i], ' ');
+    	if (!args)
+        	return (0);
+		j = 0;
+		while (args[j])
+		{
+			num = ft_atol(args[j]);
+			if (num < INT_MIN || num > INT_MAX)
+			{
+				free(args);
+				return (0);
+			}
+			new_node = create_node(num);
+			if (!new_node)
+				return (0);
+			stack_add_back(&program->stack_a, new_node);
+			program->size_a++;
+			free(args[j]);
+			j++;
+		}
+		free(args);
 		i++;
 	}
 	return (1);
