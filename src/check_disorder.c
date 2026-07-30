@@ -27,30 +27,3 @@ double subject_disorder(t_stack **stack_a)
 		return (0.0);
 	return ((double)mistakes / total_pairs);
 }
-
-/*
-int	ft_disorder(int	*numbers, double len)
-{
-	int	i;
-	double disorder;
-	double count;
-
-	if (len <= 1)
-		return (0);
-	i = 0;
-	count = 0;
-	disorder = 0;
-	while (i < len - 1)
-	{
-		if (numbers[i] > numbers[i + 1])
-		{
-			disorder += (100.0 / len);
-			count++;
-		}
-		i++;
-	}
-	if (count == len - 1)
-		disorder += (100.0 / len);
-	return (disorder);
-}
-*/
