@@ -2,41 +2,42 @@
 
 static void rev_rotate(t_stack **stack)
 {
-    t_stack *last;
-    t_stack *second_to_last;
+	t_stack *last;
 
-    if (!stack || !*stack || !(*stack)->next)
-        return ;
-    
-    last = *stack;
-    second_to_last = NULL;
-    
-    while (last->next != NULL)
-    {
-        second_to_last = last;
-        last = last->next;
-    }
-    
-    second_to_last->next = NULL;
-    last->next = *stack;
-    *stack = last;
-}
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
+	last = *stack;
+	while (last->next != NULL)
+		last = last->next;
+	if (last->prev)
+        last->prev->next = NULL;
+	last->next = *stack;
+	(*stack)->prev = last;
+	last->prev = NULL;
+	*stack = last;
+	}
 
-void rra(t_stack **a)
+void rra(t_program *program)
 {
-    rev_rotate(a);
+	if (!pg || !pg->stack_a || !pg->stack_a->next)
+        return ;
+    rev_rotate(&pg->stack_a);
     write(1, "rra\n", 4);
 }
 
-void rrb(t_stack **b)
+void rrb(t_program *program)
 {
-    rev_rotate(b);
+	if (!pg || !pg->stack_b || !pg->stack_b->next)
+        return ;
+    rev_rotate(&pg->stack_b);
     write(1, "rrb\n", 4);
 }
 
-void rrr(t_stack **a, t_stack **b)
+void rrr(t_program *program)
 {
-    rev_rotate(a);
-    rev_rotate(b);
+    if (!pg)
+        return ;
+    rev_rotate(&pg->stack_a);
+    rev_rotate(&pg->stack_b);
     write(1, "rrr\n", 4);
 }

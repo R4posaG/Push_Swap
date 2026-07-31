@@ -5,7 +5,7 @@ static int is_valid(char *arg)
 	i = 0;
 	while (arg[i] == ' ' || (arg[i] >= '\t' && arg[i] <= '\r'))
 		i++;
-	if (arg[i] == '-' || *str == '+')
+	if (arg[i] == '-' || arg[i] == '+')
 		i++;	
 	while (is_digit(arg[i]))
 		i++;
@@ -36,6 +36,23 @@ static long	ft_atol(const char *str)
 	}
 	return (result * sign);
 }
+
+// Função auxiliar para libertar a matriz do split em caso de erro
+static void free_matrix(char **matrix)
+{
+    int i;
+
+    if (!matrix)
+        return ;
+    i = 0;
+    while (matrix[i])
+    {
+        free(matrix[i]);
+        i++;
+    }
+    free(matrix);
+}
+
 
 int	parse_arguments(int argc, char **argv, t_program *program)
 {
