@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/03 16:35:26 by hjacinto          #+#    #+#             */
+/*   Updated: 2026/08/03 17:00:05 by hjacinto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_stack	*create_node(int value)
@@ -16,55 +28,56 @@ t_stack	*create_node(int value)
 
 void	stack_add_back(t_stack **stack, t_stack *new_node)
 {
-	t_stack *current;
+	t_stack *last;
 
 	if (!stack || !new_node)
 		return ;
 	if (!*stack)
 	{
 		*stack = new_node;
+		new_node->next = new_node;
+		new_node->prev = new_node;
 		return ;
 	}
-	current = *stack;
-	while (current->next)
-		current = current->next;
-	current->next = new_node;
-	new_node->prev = current;
+	last = (*stack)->prev;
+	last->next = new_node;
+	new_node->prev = last;
+	new_node->next = *stack;
+	(*stack)->prev = new_node;
 }
 
 void	free_stack(t_stack **stack)
 {
 	t_stack	*next_node;
 	t_stack	*current;
+	t_stack *last;
 
 	if (!stack || !*stack)
 		return ;
+	last = (*stack)->prev;
 	current = *stack;
-	while (current)
+	while (current != last)
 	{
 		next_node = current->next;
 		free(current);
 		current = next_node;
 	}
+	free(last);
 	*stack = NULL;
 }
 
-int has_duplicates(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
-    t_stack *current;
-    t_stack *runner;
+	t_stack	*head;
 
-    current = stack;
-    while (current)
-    {
-        runner = current->next;
-        while (runner)
-        {
-            if (current->value == runner->value)
-                return (1);
-            runner = runner->next;
-        }
-        current = current->next;
-    }
-    return (0);
+	if (!stack)
+		return (1);
+	head = stack;
+	while (stack->next != head)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

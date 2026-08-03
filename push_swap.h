@@ -1,9 +1,10 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
-# include "libft/libft.h"
+# include <limits.h>
 
 typedef struct s_stack
 {
@@ -44,7 +45,7 @@ push_swap/
 ├── push_swap.h        <- Contém a struct e protótipos
 ├── main.c             <- Ponto de entrada, validação inicial e chamada do algoritmo
 ├── stack_utils.c      <- Funções para criar, limpar e manipular os nós da lista
-├── algorithm.c        <- A lógica principal de ordenação (ex: Turk ou Radix)
+├── algorithms/        <- A lógica principal de ordenação (ex: Turk, Radix, ...)
 └── operations/        <- Pasta com as instruções obrigatórias
     ├── swap.c         <- Implementação de sa, sb, ss
     ├── push.c         <- Implementação de pa, pb

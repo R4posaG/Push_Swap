@@ -1,93 +1,95 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/03 16:35:44 by hjacinto          #+#    #+#             */
+/*   Updated: 2026/08/03 16:57:41 by hjacinto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
 static int is_valid(char *arg)
 {
 	int i;
 
 	i = 0;
-	while (arg[i] == ' ' || (arg[i] >= '\t' && arg[i] <= '\r'))
-		i++;
 	if (arg[i] == '-' || arg[i] == '+')
-		i++;	
-	while (is_digit(arg[i]))
 		i++;
-	if (!is_digit(arg[i]))
+	if (!arg[i])
 		return (0);
+	while (arg[i])
+	{
+		if (!ft_isdigit(arg[i]))
+			return (0);
+		i++;
+	}	
 	return (1);
 }
 
-static long	ft_atol(const char *str)
+static int has_duplicate(t_stack *stack, int num)
 {
-	long	sign;
-	long	result;
+	t_stack	*head;
 
-	sign = 1;
-	result = 0;
-	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
-		str++;
-	if (*str == '-' || *str == '+')
+	if (!stack)
+		return (0);
+	head = stack;
+	if (head->value == num)
+		return (1);
+	stack = stack->next;
+	while (stack != head)
 	{
-		if (*str == '-')
-			sign = -1;
-		str++;
+		if (stack->value == num)
+			return (1);
+		stack = stack->next;
 	}
-	while (*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + (*str - '0');
-		str++;
-	}
-	return (result * sign);
+	return (0);
 }
 
-// Função auxiliar para libertar a matriz do split em caso de erro
-static void free_matrix(char **matrix)
+static int process_argument(char *arg, t_program *program)
 {
-    int i;
+	long	num;
+	t_stack	*new_node;
 
-    if (!matrix)
-        return ;
-    i = 0;
-    while (matrix[i])
-    {
-        free(matrix[i]);
-        i++;
-    }
-    free(matrix);
+	if (!is_valid(arg))
+		return (0);
+	num = ft_atol(arg);
+	if (num < INT_MIN || num > INT_MAX)
+		return (0);
+	if (has_duplicate(program->stack_a, (int)num))
+		return (0);
+	new_node = create_node((int)num);
+	if (!new_node)
+		return (0);
+	stack_add_back(&program->stack_a, new_node);
+	program->size_a++;
+	return (1);
 }
-
 
 int	parse_arguments(int argc, char **argv, t_program *program)
 {
 	int		i;
 	int		j;
-	long	num;
 	char    **args;
-	t_stack	*new_node;
 
 	i = 1;
-	while (argv[i])
+	while (i < argc)
 	{
-		if (!is_valid(argv[i]))
-			return (0);
+		
 		args = ft_split(argv[i], ' ');
-    	if (!args)
-        	return (0);
+    	if (!args || !args[0])
+        	return (free_matrix(args), 0);
 		j = 0;
 		while (args[j])
 		{
-			num = ft_atol(args[j]);
-			if (num < INT_MIN || num > INT_MAX)
-			{
-				free(args);
-				return (0);
-			}
-			new_node = create_node(num);
-			if (!new_node)
-				return (0);
-			stack_add_back(&program->stack_a, new_node);
-			program->size_a++;
-			free(args[j]);
+			if (!process_argument(args[j], program))
+				return (free_matrix(args), 0);
 			j++;
 		}
-		free(args);
+		free_matrix(args);
 		i++;
 	}
 	return (1);

@@ -1,34 +1,71 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/03 17:25:57 by hjacinto          #+#    #+#             */
+/*   Updated: 2026/08/03 17:55:50 by hjacinto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-static void push(t_stack **src, t_stack **dest)
+static void	insert_dest(t_stack **dest, t_stack *node)
 {
-    t_stack *tmp;
-
-    if (!src || !*src)
-        return ;
-    tmp = *src;
-    *src = (*src)->next;
-    if (*src)
-		(*src)->prev = NULL;
-    tmp->next = *dest;
-	if (*dest)
-		*dest->prev = tmp;
-    *dest = tmp;
-	temp->prev = NULL;
+	if (!*dest)
+	{
+		*dest = node;
+		node->next = node;
+		node->prev = node;
+	}
+	else
+	{
+		node->next = *dest;
+		node->prev = (*dest)->prev;
+		(*dest)->prev->next = node;
+		(*dest)->prev = node;
+		*dest = node;
+	}
 }
 
-void pa(t_program *program)
+// Retorna 1 se moveu o nó com sucesso, 0 se a stack de origem estiver vazia
+static int	push(t_stack **src, t_stack **dest)
 {
-    push(&program->stack_b, &program->stack_a);
-	pg->size_a++;
-    pg->size_b--;
-    write(1, "pa\n", 3);
+	t_stack	*node_to_move;
+
+	if (!src || !*src)
+		return (0);
+	node_to_move = *src;
+	if (node_to_move->next == node_to_move)
+		*src = NULL;
+	else
+	{
+		node_to_move->prev->next = node_to_move->next;
+		node_to_move->next->prev = node_to_move->prev;
+		*src = node_to_move->next;
+	}
+	insert_dest(dest, node_to_move);
+	return (1);
 }
 
-void pb(t_program *program)
+void	pa(t_program *program)
 {
-    push(&program->stack_a, &program->stack_b);
-	pg->size_a--;
-    pg->size_b++;
-    write(1, "pb\n", 3);
+	if (program && push(&program->stack_b, &program->stack_a))
+	{
+		program->size_a++;
+		program->size_b--;
+		write(1, "pa\n", 3);
+	}
+}
+
+void	pb(t_program *program)
+{
+	if (program && push(&program->stack_a, &program->stack_b))
+	{
+		program->size_a--;
+		program->size_b++;
+		write(1, "pb\n", 3);
+	}
 }
