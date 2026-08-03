@@ -6,7 +6,7 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 17:25:57 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/03 17:55:50 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/03 19:34:46 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	pa(t_program *program)
 	{
 		program->size_a++;
 		program->size_b--;
-		write(1, "pa\n", 3);
+		regist_operation(program, PA, "pa\n");
 	}
 }
 
@@ -66,6 +66,6 @@ void	pb(t_program *program)
 	{
 		program->size_a--;
 		program->size_b++;
-		write(1, "pb\n", 3);
+		regist_operation(program, PB, "pb\n");
 	}
 }

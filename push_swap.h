@@ -6,6 +6,31 @@
 # include <stdlib.h>
 # include <limits.h>
 
+typedef enum e_op
+{
+	SA,
+	SB,
+	SS,
+	PA,
+	PB,
+	RA,
+	RB,
+	RR,
+	RRA,
+	RRB,
+	RRR,
+	OP_COUNT
+}	t_op;
+
+
+typedef enum e_strategy
+{
+	ADAPTIVE,
+	SIMPLE,
+	MEDIUM,
+	COMPLEX
+}	t_strategy;
+
 typedef struct s_stack
 {
     int             value;       // O número original recebido no argumento
@@ -20,6 +45,12 @@ typedef struct s_program
 	t_stack	*stack_b;
 	int		size_a;
 	int		size_b;
+
+	t_strategy	strategy;
+	int			bench_mode;
+	int			op_counts[OP_COUNT];
+	int			total_ops;
+	double		disorder;
 }	t_program;
 
 void	sa(t_stack **stack_a);

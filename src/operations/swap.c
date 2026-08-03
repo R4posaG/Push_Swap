@@ -6,7 +6,7 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 17:53:57 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/03 17:53:58 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/03 19:34:33 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ static int	swap(t_stack **stack)
 void	sa(t_program *program)
 {
 	if (program && swap(&program->stack_a))
-		write(1, "sa\n", 3);
+		regist_operation(program, SA, "sa\n");
 }
 
 void	sb(t_program *program)
 {
 	if (program && swap(&program->stack_b))
-		write(1, "sb\n", 3);
+		regist_operation(program, SB, "sb\n");
 }
 
 void	ss(t_program *program)
@@ -60,5 +60,5 @@ void	ss(t_program *program)
 	swapped_b = swap(&program->stack_b);
 	// Se pelo menos uma trocou, o enunciado diz para imprimir (ou apenas se ambas, dependendo do critério estrito, mas habitualmente se ambas)
 	if (swapped_a && swapped_b)
-		write(1, "ss\n", 3);
+		regist_operation(program, SS, "ss\n");
 }
