@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 16:42:21 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/03 19:26:28 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/05 15:55:52 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,12 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	initialize_program(&program);
-	if (!check_flags(argc, argv, &program))
-		return (write(2, "Error\n", 6), 1);
+	if (!check_flags(argc, argv, &program))  // to do, Implement check flags.
+		return (print_error(), 1);
 	if (!parse_arguments(argc, argv, &program))
 	{
-		write(2, "Error\n", 6);
 		free_stack(&program.stack_a);
-		return (1);
+		return (print_error(), 1);
 	}
 	// Atribui os índices (0 a N-1) à stack_a antes de ordenar
 	assign_indices(program.stack_a);

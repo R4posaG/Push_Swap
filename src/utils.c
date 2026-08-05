@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 16:35:20 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/03 16:36:34 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/05 15:43:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,9 @@ long	ft_atol(const char *str)
 		str++;
 	}
 	return (result * sign);
+}
+
+void	print_error(void)
+{
+	write(2, "Error\n", 6);
 }
