@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 16:35:44 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/03 16:57:41 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/07 00:13:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,10 @@ int	parse_arguments(int argc, char **argv, t_program *program)
 	char    **args;
 
 	i = 1;
+	if (check_flags(argc, argv, &program))
+		i = 2;
 	while (i < argc)
 	{
-		
 		args = ft_split(argv[i], ' ');
     	if (!args || !args[0])
         	return (free_matrix(args), 0);

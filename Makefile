@@ -7,7 +7,7 @@ HEADER = push_swap.h
 
 LIBFT = libft/libft.a
 
-SRC = main.c stack_utils.c
+SRC = main.c stack_utils.c parsing.c utils.c check_disorder.c
 
 OBJ = $(SRC:.c=.o)
 

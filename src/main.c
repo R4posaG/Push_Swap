@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 16:42:21 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/05 15:55:52 by marvin           ###   ########.fr       */
+/*   Updated: 2026/08/07 00:13:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	main(int argc, char **argv)
 		free_stack(&program.stack_a);
 		return (print_error(), 1);
 	}
+	read_flags(argc, argv, &program); // new
 	// Atribui os índices (0 a N-1) à stack_a antes de ordenar
 	assign_indices(program.stack_a);
 	if (!is_sorted(program.stack_a))
