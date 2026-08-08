@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   algorithms_utils.c                                :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: ajoao <ajoao@student.42.fr>               #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/07/30 18:06:01 by ajoao            #+#    #+#              */
-/*   Updated: 2026/08/04 11:22:40 by ajoao           ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   algorithms_utils.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/30 18:06:01 by ajoao             #+#    #+#             */
+/*   Updated: 2026/08/08 21:18:27 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 //Por enquanto temos estas funções auxiliares, mas podemos adicionar mais conforme necessário.
 // Alg. 1 - Verifica se a pilha já está em ordem crescente
-bool is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
 	if (!stack)
-		return (true);
+		return (1);
 	while (stack->next != NULL)
 	{
 		if (stack->value > stack->next->value)
-			return (false);
+			return (0);
 		stack = stack->next;
 	}
-	return (true);
+	return (1);
 }
 
 //  Alg. 2 - Retorna o nó com o maior valor na pilha

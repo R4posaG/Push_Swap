@@ -33,33 +33,32 @@ typedef enum e_strategy
 
 typedef struct s_stack
 {
-    int             value;       // O número original recebido no argumento
-    int             index;       // A posição correta do número após a ordenação (essencial para o algoritmo)
-    struct s_stack  *next;       // Aponta para o elemento abaixo
-    struct s_stack  *prev;       // Aponta para o elemento acima
-}   t_stack;
+    int             value;
+    int             index;
+    struct s_stack  *next;
+    struct s_stack  *prev;
+}   				t_stack;
 
 typedef struct s_program
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	int		size_a;
-	int		size_b;
-
+	t_stack		*stack_a;
+	t_stack		*stack_b;
+	int			size_a;
+	int			size_b;
 	t_strategy	strategy;
 	int			bench_mode;
 	int			op_counts[OP_COUNT];
 	int			total_ops;
 	double		disorder;
-}	t_program;
+}				t_program;
 
 void	sa(t_stack **stack_a);
-void	pa(t_stack **stack_a, t_stack **stack_b);
+void	pa(t_program *program);
 void	ra(t_stack **stack_a);
 void	rra(t_stack **stack_a);
 
 void	sb(t_stack **stack_b);
-void	pb(t_stack **stack_b, t_stack **stack_a);
+void	pb(t_program *program);
 void	rb(t_stack **stack_b);
 void	rrb(t_stack **stack_b);
 
