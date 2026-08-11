@@ -11,10 +11,10 @@ It sorts data on a stack, with a limited set of instructions, using the lowest p
 ---
 
 #### ajoao
-- Operations.
+- Operations and Algorithms.
 
 #### hjacinto
-- Parsing.
+- Parsing, Operations and Algorithms.
 
 ---
 
@@ -26,31 +26,17 @@ This program only accepts valid positive integers as an argument.
 
 ### Operations
 
-sa (swap a): Swap the first two elements at the top of stack a.  
-- Do nothing if there is only one or no elements.  
 
-sb (swap b): Swap the first two elements at the top of stack b.    
-- Do nothing if there is only one or no elements.
-
-ss : sa and sb at the same time.  
-
-pa (push a): Take the first element at the top of b and put it at the top of a.  
-- Do nothing if b is empty.
-
-pb (push b): Take the first element at the top of a and put it at the top of b.  
-- Do nothing if a is empty.
-
-ra (rotate a): Shift up all elements of stack a by one.  
-- The first element becomes the last one.
-
-rb (rotate b): Shift up all elements of stack b by one.  
-- The first element becomes the last one.
-
-rr : ra and rb at the same time.  
-rra (reverse rotate a): Shift down all elements of stack a by one.  
-- The last element becomes the first one.
-
-rrb (reverse rotate b): Shift down all elements of stack b by one.
-- The last element becomes the first one.
-
-rrr : rra and rrb at the same time.
+| Command | Name | Description | Exception / Rule |
+| :---: | :--- | :--- | :--- |
+| **`sa`** | Swap A | Swap the first two elements at the top of stack A. | Does nothing if 1 or 0 elements. |
+| **`sb`** | Swap B | Swap the first two elements at the top of stack B. | Does nothing if 1 or 0 elements. |
+| **`ss`** | Swap A & B | Execute `sa` and `sb` at the same time. | Subject to individual stack rules. |
+| **`pa`** | Push A | Take the first element of B and put it at the top of A. | Does nothing if stack B is empty. |
+| **`pb`** | Push B | Take the first element of A and put it at the top of B. | Does nothing if stack A is empty. |
+| **`ra`** | Rotate A | Shift up all elements of stack A by one position. | The first element becomes the last. |
+| **`rb`** | Rotate B | Shift up all elements of stack B by one position. | The first element becomes the last. |
+| **`rr`** | Rotate A & B | Execute `ra` and `rb` at the same time. | Affects both stacks simultaneously. |
+| **`rra`** | Reverse Rotate A | Shift down all elements of stack A by one position. | The last element becomes the first. |
+| **`rrb`** | Reverse Rotate B | Shift down all elements of stack B by one position. | The last element becomes the first. |
+| **`rrr`** | Reverse Rotate A & B | Execute `rra` and `rrb` at the same time. | Affects both stacks simultaneously. |
