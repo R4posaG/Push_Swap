@@ -11,16 +11,21 @@ It sorts data on a stack, with a limited set of instructions, using the lowest p
 ---
 
 #### ajoao
-- Operations and Algorithms.
+- Operations
+- Algorithms
 
 #### hjacinto
-- Parsing, Operations and Algorithms.
+- Parsing
+- Operations
+- Algorithms
+- Readme
 
 ---
 
 ### Parsing
 
-This program only accepts valid positive integers as an argument.
+This program only accepts valid positive integers.  
+The program can receive a flag `--bench` which displays the benchmark. And a couple other strategy flags: `--simple`, `--medium`, `--complex` and `--adaptive` wich select the strategy used for sorting. 
 
 ---
 
