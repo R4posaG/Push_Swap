@@ -35,19 +35,19 @@ static void	initialize_program(t_program *program)
 int	main(int argc, char **argv)
 {
 	t_program	program;
+	int			i;
 
 	if (argc < 2)
 		return (0);
 	initialize_program(&program);
-	if (!check_flags(argc, argv, &program))  // to do, Implement check flags.
-		return (print_error(), 1);
+	i = count_flags(argc, argv);
+	while (i--)
+		read_flags(argv[1], &program);
 	if (!parse_arguments(argc, argv, &program))
 	{
 		free_stack(&program.stack_a);
 		return (print_error(), 1);
 	}
-	read_flags(argc, argv, &program); // new
-	// Atribui os índices (0 a N-1) à stack_a antes de ordenar
 	assign_indices(program.stack_a);
 	if (!is_sorted(program.stack_a))
 		apply_strategy(&program);

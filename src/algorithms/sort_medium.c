@@ -57,7 +57,7 @@ void	sort_four_five(t_program *program)
 {
 	while (ft_lstsize(program->stack_a) > 3)
 		push_min_to_b(program);
-	sort_three(program->stack_a);
+	sort_three(program);
 	while (program->size_b > 0)
 		pa(program);
 }

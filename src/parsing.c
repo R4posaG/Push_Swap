@@ -30,25 +30,6 @@ static int is_valid(char *arg)
 	return (1);
 }
 
-static int has_duplicate(t_stack *stack, int num)
-{
-	t_stack	*head;
-
-	if (!stack)
-		return (0);
-	head = stack;
-	if (head->value == num)
-		return (1);
-	stack = stack->next;
-	while (stack != head)
-	{
-		if (stack->value == num)
-			return (1);
-		stack = stack->next;
-	}
-	return (0);
-}
-
 static int process_argument(char *arg, t_program *program)
 {
 	long	num;
@@ -75,9 +56,7 @@ int	parse_arguments(int argc, char **argv, t_program *program)
 	int		j;
 	char    **args;
 
-	i = 1;
-	if (check_flags(argc, argv, program))
-		i = 2;
+	i = 1 + count_flags(argc, argv);
 	while (i < argc)
 	{
 		args = ft_split(argv[i], ' ');

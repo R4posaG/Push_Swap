@@ -52,33 +52,24 @@ typedef struct s_program
 	double		disorder;
 }				t_program;
 
-void	sa(t_stack **stack_a);
+void	sa(t_program *program);
 void	pa(t_program *program);
-void	ra(t_stack **stack_a);
-void	rra(t_stack **stack_a);
+void	ra(t_program *program);
+void	rra(t_program *program);
 
-void	sb(t_stack **stack_b);
+void	sb(t_program *program);
 void	pb(t_program *program);
-void	rb(t_stack **stack_b);
-void	rrb(t_stack **stack_b);
+void	rb(t_program *program);
+void	rrb(t_program *program);
 
 t_stack	*create_node(int value);
 void	stack_add_back(t_stack **stack, t_stack *new_node);
 void	free_stack(t_stack **stack);
 int		has_duplicates(t_stack *stack);
 
+int		check_flags(char *arg);
+void	read_flags(char *arg, t_program *program);
+
 int	main(int argc, char **argv);
 
 #endif
-/*
-push_swap/
-├── push_swap.h        <- Contém a struct e protótipos
-├── main.c             <- Ponto de entrada, validação inicial e chamada do algoritmo
-├── stack_utils.c      <- Funções para criar, limpar e manipular os nós da lista
-├── algorithms/        <- A lógica principal de ordenação (ex: Turk, Radix, ...)
-└── operations/        <- Pasta com as instruções obrigatórias
-    ├── swap.c         <- Implementação de sa, sb, ss
-    ├── push.c         <- Implementação de pa, pb
-    ├── rotate.c       <- Implementação de ra, rb, rr
-    └── rev_rotate.c   <- Implementação de rra, rrb, rrrr
-*/

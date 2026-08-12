@@ -81,3 +81,22 @@ int	is_sorted(t_stack *stack)
 	}
 	return (1);
 }
+
+int has_duplicate(t_stack *stack, int num)
+{
+	t_stack	*head;
+
+	if (!stack)
+		return (0);
+	head = stack;
+	if (head->value == num)
+		return (1);
+	stack = stack->next;
+	while (stack != head)
+	{
+		if (stack->value == num)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}

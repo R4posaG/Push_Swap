@@ -13,20 +13,6 @@
 #include "push_swap.h"
 
 //Por enquanto temos estas funções auxiliares, mas podemos adicionar mais conforme necessário.
-// Alg. 1 - Verifica se a pilha já está em ordem crescente
-int	is_sorted(t_stack *stack)
-{
-	if (!stack)
-		return (1);
-	while (stack->next != NULL)
-	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
-
 //  Alg. 2 - Retorna o nó com o maior valor na pilha
 
 t_stack	*find_highest(t_stack *stack)
