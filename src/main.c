@@ -42,7 +42,7 @@ int	main(int argc, char **argv)
 	initialize_program(&program);
 	i = count_flags(argc, argv);
 	while (i--)
-		read_flags(argv[1], &program);
+		read_flags(argv[i], &program);
 	if (!parse_arguments(argc, argv, &program))
 	{
 		free_stack(&program.stack_a);

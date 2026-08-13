@@ -27,6 +27,13 @@ It sorts data on a stack, with a limited set of instructions, using the lowest p
 This program only accepts valid positive integers.  
 The program can receive a flag `--bench` which displays the benchmark. And a couple other strategy flags: `--simple`, `--medium`, `--complex` and `--adaptive` wich select the strategy used for sorting. 
 
+Examples:
+ 
+```sh
+./push_swap --bench 3 1 2
+./push_swap --bench --simple "5 4 3 2 1"
+```
+
 ---
 
 ### Operations
@@ -45,3 +52,20 @@ The program can receive a flag `--bench` which displays the benchmark. And a cou
 | **`rra`** | Reverse Rotate A | Shift down all elements of stack A by one position. | The last element becomes the first. |
 | **`rrb`** | Reverse Rotate B | Shift down all elements of stack B by one position. | The last element becomes the first. |
 | **`rrr`** | Reverse Rotate A & B | Execute `rra` and `rrb` at the same time. | Affects both stacks simultaneously. |
+
+-----
+
+### Instructions
+ 
+```sh
+make
+```
+ 
+This builds `libft` first, then compiles `push_swap` against it. Both are
+compiled with `-Wall -Wextra -Werror`.
+ 
+```sh
+make clean   # remove object files (project + libft)
+make fclean  # clean + remove the push_swap binary
+make re      # fclean + all
+```
