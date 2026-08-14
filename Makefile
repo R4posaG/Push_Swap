@@ -1,4 +1,4 @@
-NAME = pushswap
+NAME = push_swap
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -7,21 +7,22 @@ HEADER = push_swap.h
 
 LIBFT = libft/libft.a
 
-SRC = main.c stack_utils.c parsing.c utils.c \
-	check_disorder.c flags.c strategy.c indexing.c benchmark.c benchmark_utils.c \
-	operations/register.c operations/push.c operations/swap.c \
-	operations/rotate.c operations/rev_rotate.c \
-	algorithms/algorithms_utils.c algorithms/sort_simple.c \
-	algorithms/sort_medium.c algorithms/sort_complex.c
+SRC = src/main.c src/stack_utils.c src/parsing.c src/utils.c \
+	src/check_disorder.c src/flags.c src/strategy.c src/indexing.c \
+	src/benchmark.c src/benchmark_utils.c \
+	src/operations/register.c src/operations/push.c src/operations/swap.c \
+	src/operations/rotate.c src/operations/rev_rotate.c \
+	src/algorithms/algorithms_utils.c src/algorithms/sort_simple.c \
+	src/algorithms/sort_medium.c src/algorithms/sort_complex.c src/algorithms/sort_small.c
 
 OBJ = $(SRC:.c=.o)
 
-all: $(LIBFT) $(NAME)
+all: $(NAME)
 
 $(LIBFT):
 	@make -C libft
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 %.o: %.c $(HEADER)

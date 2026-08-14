@@ -6,7 +6,7 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 21:29:07 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/14 21:29:08 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/14 23:31:48 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,15 @@ void	apply_strategy(t_program *program)
 {
 	double	disorder;
 
+	if (!program)
+		return ;
 	disorder = subject_disorder(&program->stack_a);
 	program->disorder = disorder * 100.0;
+	if (program->size_a <= 5)
+	{
+		sort_small(program);
+		return ;
+	}
 	if (program->strategy == ADAPTIVE)
 	{
 		if (disorder < 0.2)

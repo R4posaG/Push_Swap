@@ -6,7 +6,7 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 16:35:20 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/14 21:29:21 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/14 22:21:39 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,20 @@ long	ft_atol(const char *str)
 void	print_error(void)
 {
 	write(2, "Error\n", 6);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t					i;
+	unsigned char			*str1;
+	unsigned char			*str2;
+
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	i = 0;
+	while (str1[i] == str2[i] && str1[i])
+	{
+		i++;
+	}
+	return (str1[i] - str2[i]);
 }

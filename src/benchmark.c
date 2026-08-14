@@ -6,13 +6,13 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 21:28:28 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/14 21:51:44 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/14 22:22:52 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static const char	*get_op_name(t_op op)
+static char	*get_op_name(t_op op)
 {
 	if (op == SA) return ("sa");
 	if (op == SB) return ("sb");

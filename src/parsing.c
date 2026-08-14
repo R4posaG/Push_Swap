@@ -6,7 +6,7 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 16:35:44 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/08 18:05:22 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/14 22:18:08 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	parse_arguments(int argc, char **argv, t_program *program)
 	{
 		args = ft_split(argv[i], ' ');
     	if (!args || !args[0])
-        	return (free_matrix(args), 0);
+			return (free_matrix(args), 0);
 		j = 0;
 		while (args[j])
 		{

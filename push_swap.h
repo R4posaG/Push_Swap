@@ -63,6 +63,7 @@ int		has_duplicate(t_stack *stack, int num);
 void	free_matrix(char **matrix);
 long	ft_atol(const char *str);
 void	print_error(void);
+int	ft_strcmp(const char *s1, const char *s2);
 
 /* parsing.c */
 int		parse_arguments(int argc, char **argv, t_program *program);
@@ -94,6 +95,10 @@ void	sort_medium(t_program *program);
 
 /* sort_complex.c */
 void	sort_complex(t_program *program);
+
+/* sort_small.c */
+void	sort_three(t_program *program);
+void	sort_small(t_program *program);
 
 /* register.c */
 void	regist_operation(t_program *program, t_op op_type, char *op_str);
