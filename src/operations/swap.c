@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
 static int	swap(t_stack **stack)
 {
@@ -29,9 +29,9 @@ static int	swap(t_stack **stack)
 	first->prev->next = second;
 	second->next->prev = first;
 	first->next = second->next;
+	second->prev = first->prev;
 	first->prev = second;
 	second->next = first;
-	second->prev = first->prev;
 	*stack = second;
 	return (1);
 }

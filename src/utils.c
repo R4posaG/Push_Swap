@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../push_swap.h"
+
 void	free_matrix(char **matrix)
 {
 	int i;
@@ -29,6 +31,7 @@ long	ft_atol(const char *str)
 {
 	long	sign;
 	long	result;
+	int		digit;
 
 	sign = 1;
 	result = 0;
@@ -42,7 +45,12 @@ long	ft_atol(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
-		result = result * 10 + (*str - '0');
+		digit = *str - '0';
+		if (sign == 1 && result > (LONG_MAX - digit) / 10)
+			return (LONG_MAX);
+		if (sign == -1 && result > (LONG_MAX - digit) / 10)
+			return (LONG_MIN);
+		result = result * 10 + digit;
 		str++;
 	}
 	return (result * sign);

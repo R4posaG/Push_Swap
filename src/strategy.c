@@ -1,6 +1,5 @@
 #include "push_swap.h"
 
-// Executa a estratégia selecionada ou decide a adaptativa (20 linhas)
 void	apply_strategy(t_program *program)
 {
 	double	disorder;
@@ -10,13 +9,13 @@ void	apply_strategy(t_program *program)
 	if (program->strategy == ADAPTIVE)
 	{
 		if (disorder < 0.2)
-			program->strategy = SIMPLE;
+			sort_simple(program);
 		else if (disorder < 0.5)
-			program->strategy = MEDIUM;
+			sort_medium(program);
 		else
-			program->strategy = COMPLEX;
+			sort_complex(program);
 	}
-	if (program->strategy == SIMPLE)
+	else if (program->strategy == SIMPLE)
 		sort_simple(program);
 	else if (program->strategy == MEDIUM)
 		sort_medium(program);

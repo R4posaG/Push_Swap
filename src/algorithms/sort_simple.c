@@ -1,45 +1,37 @@
-#include "push_swap.h"
+#include "../../push_swap.h"
 
-// Executa uma rotação completa na stack simulando uma iteração (24 linhas)
-static int	bubble_pass(t_program *program)
+// Auxiliar O(n^2): Encontra o menor, roda pelo caminho mais curto e joga em B
+static void	push_current_min(t_program *program)
 {
-	int		swapped;
-	int		i;
-	int		size;
+	t_stack	*min;
+	int		pos;
 
-	swapped = 0;
-	i = 0;
-	size = program->size_a;
-	while (i < size - 1)
+	min = find_min(program->stack_a);
+	pos = get_pos(program->stack_a, min);
+	if (pos <= program->size_a / 2)
 	{
-		if (program->stack_a->index > program->stack_a->next->index)
-		{
-			sa(program);
-			swapped = 1;
-		}
-		ra(program);
-		i++;
+		while (program->stack_a != min)
+			ra(program);
 	}
-	ra(program);
-	return (swapped);
+	else
+	{
+		while (program->stack_a != min)
+			rra(program);
+	}
+	pb(program);
 }
 
-// Algoritmo principal Bubble Sort O(n^2) (13 linhas)
+// Algoritmo Seleção/Extração O(n^2) Limpo e Otimizado (15 linhas)
 void	sort_simple(t_program *program)
 {
-	int	has_swapped;
-
-	if (program->size_a <= 1)
+	if (!program || program->size_a <= 1 || is_sorted(program->stack_a))
 		return ;
-	if (program->size_a == 2)
-	{
-		if (program->stack_a->index > program->stack_a->next->index)
-			sa(program);
-		return ;
-	}
-	has_swapped = 1;
-	while (has_swapped)
-	{
-		has_swapped = bubble_pass(program);
-	}
+	// Esvazia a stack A enviando sempre o menor de cada vez para B
+	while (program->size_a > 3)
+		push_current_min(program);
+	// Ordena os 3 que restaram de forma ultra rápida
+	sort_three(program);
+	// Devolve tudo ordenado para a stack A
+	while (program->size_b > 0)
+		pa(program);
 }

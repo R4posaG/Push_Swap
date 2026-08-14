@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
 static int	rev_rotate(t_stack **stack)
 {
@@ -43,4 +43,19 @@ void	rrr(t_program *program)
 	rev_b = rev_rotate(&program->stack_b);
 	if (rev_a && rev_b)
 		regist_operation(program, RRR, "rrr\n");
+	else if (rev_a)
+		regist_operation(program, RRA, "rra\n");
+	else if (rev_b)
+		regist_operation(program, RRB, "rrb\n");
 }
+
+/*
+	if (!program)
+		return ;
+	if (program->stack_a && program->stack_a->next != program->stack_a
+		&& program->stack_b && program->stack_b->next != program->stack_b)
+	{
+		rev_rotate(&program->stack_a);
+		rev_rotate(&program->stack_b);
+		regist_operation(program, RRR, "rrr\n");
+*/

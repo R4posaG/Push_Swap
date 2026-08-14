@@ -10,82 +10,65 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-//Por enquanto temos estas funções auxiliares, mas podemos adicionar mais conforme necessário.
-//  Alg. 2 - Retorna o nó com o maior valor na pilha
+#include "../../push_swap.h"
 
 t_stack	*find_highest(t_stack *stack)
 {
 	t_stack	*highest;
+	t_stack	*head;
 
 	if (!stack)
 		return (NULL);
+	head = stack;
 	highest = stack;
-	while (stack)
+	while (1)
 	{
 		if (stack->value > highest->value)
 			highest = stack;
 		stack = stack->next;
+		if (stack == head)
+			break ;
 	}
 	return (highest);
 }
 
-//  Alg. 4 - Retorna o nó com o menor valor na pilha
-
 t_stack	*find_min(t_stack *stack)
 {
 	t_stack	*min;
+	t_stack	*head;
 
 	if (!stack)
 		return (NULL);
+	head = stack;
 	min = stack;
-	while (stack)
+	while (1)
 	{
 		if (stack->value < min->value)
 			min = stack;
 		stack = stack->next;
+		if (stack == head)
+			break ;
 	}
 	return (min);
 }
 
-//  Alg. 5 - Retorna a posição (índice 0, 1, 2...) do nó desejado na pilha
-
 int	get_pos(t_stack *stack, t_stack *target)
 {
-	int	pos;
+	t_stack	*head;
+	int		pos;
 
+	if (!stack || !target)
+		return (0);
+	head = stack;
 	pos = 0;
-	while (stack)
+	while (1)
 	{
 		if (stack == target)
 			return (pos);
 		pos++;
 		stack = stack->next;
+		if (stack == head)
+			break ;
 	}
 	return (pos);
-}
-
-//  Alg. 6 - Normaliza os valores brutos para índices de 0 a N-1 (essencial para o Radix)
-
-void	index_stack(t_stack *a)
-{
-	t_stack	*curr;
-	t_stack	*compare;
-	int		idx;
-
-	curr = a;
-	while (curr)
-	{
-		idx = 0;
-		compare = a;
-		while (compare)
-		{
-			if (compare->value < curr->value)
-				idx++;
-			compare = compare->next;
-		}
-		curr->index = idx;
-		curr = curr->next;
-	}
 }

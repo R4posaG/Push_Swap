@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // Atribui a cada nó um índice de 0 a N-1 com base no seu valor (19 linhas)
 void	assign_indices(t_stack *stack)

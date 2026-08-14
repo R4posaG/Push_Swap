@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	initialize_program(t_program *program)
 {
@@ -41,8 +41,8 @@ int	main(int argc, char **argv)
 		return (0);
 	initialize_program(&program);
 	i = count_flags(argc, argv);
-	while (i--)
-		read_flags(argv[i], &program);
+	while (i > 0)
+		read_flags(argv[i--], &program);
 	if (!parse_arguments(argc, argv, &program))
 	{
 		free_stack(&program.stack_a);

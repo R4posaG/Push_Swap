@@ -116,6 +116,10 @@ void	rrr(t_program *program);
 /* benchmark.c */
 void	display_benchmark(t_program *program);
 
+/* benchmark_utils.c*/
+void	print_text(char *before, int value, char *after);
+char	*strategy_name(t_program *program);
+
 /* main.c */
 int	main(int argc, char **argv);
 
