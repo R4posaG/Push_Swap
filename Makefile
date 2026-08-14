@@ -8,7 +8,7 @@ HEADER = push_swap.h
 LIBFT = libft/libft.a
 
 SRC = main.c stack_utils.c parsing.c utils.c \
-	check_disorder.c flags.c strategy.c indexing.c benchmark.c \
+	check_disorder.c flags.c strategy.c indexing.c benchmark.c benchmark_utils.c \
 	operations/register.c operations/push.c operations/swap.c \
 	operations/rotate.c operations/rev_rotate.c \
 	algorithms/algorithms_utils.c algorithms/sort_simple.c \

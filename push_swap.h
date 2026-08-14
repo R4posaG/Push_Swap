@@ -79,7 +79,6 @@ void	assign_indices(t_stack *stack);
 t_stack	*find_highest(t_stack *stack);
 t_stack	*find_min(t_stack *stack);
 int		get_pos(t_stack *stack, t_stack *target);
-void	index_stack(t_stack *a);
 
 /* strategy.c */
 void	apply_strategy(t_program *program);
@@ -91,12 +90,10 @@ double	subject_disorder(t_stack **stack);
 void	sort_simple(t_program *program);
 
 /* sort_medium.c */
-void	sort_three(t_program *program);
-void	sort_four_five(t_program *program);
-void	sort_stack(t_program *program);
+void	sort_medium(t_program *program);
 
 /* sort_complex.c */
-void	radix_sort(t_program *program);
+void	sort_complex(t_program *program);
 
 /* register.c */
 void	regist_operation(t_program *program, t_op op_type, char *op_str);
