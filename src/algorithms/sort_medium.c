@@ -6,7 +6,7 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 11:08:48 by ajoao             #+#    #+#             */
-/*   Updated: 2026/08/08 21:17:38 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/14 21:30:28 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,3 @@ void	sort_medium(t_program *program)
 	push_to_b_chunks(program, chunk_size);
 	pull_to_a_ordered(program);
 }
-

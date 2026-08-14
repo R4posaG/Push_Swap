@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_simple.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/14 21:30:39 by hjacinto          #+#    #+#             */
+/*   Updated: 2026/08/14 21:30:40 by hjacinto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../push_swap.h"
 
 // Auxiliar O(n^2): Encontra o menor, roda pelo caminho mais curto e joga em B
