@@ -6,7 +6,7 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 16:35:20 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/14 22:21:39 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/15 12:25:15 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_matrix(char **matrix)
 {
-	int i;
+	int	i;
 
 	if (!matrix)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 16:35:26 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/03 17:00:05 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/15 12:23:06 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_stack	*create_node(int value)
 	if (!new_node)
 		return (NULL);
 	new_node->value = value;
-	new_node->index = -1; // Inicializado a -1 até ser calculado
+	new_node->index = -1;
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	return (new_node);
@@ -28,7 +28,7 @@ t_stack	*create_node(int value)
 
 void	stack_add_back(t_stack **stack, t_stack *new_node)
 {
-	t_stack *last;
+	t_stack	*last;
 
 	if (!stack || !new_node)
 		return ;
@@ -50,7 +50,7 @@ void	free_stack(t_stack **stack)
 {
 	t_stack	*next_node;
 	t_stack	*current;
-	t_stack *last;
+	t_stack	*last;
 
 	if (!stack || !*stack)
 		return ;
@@ -82,7 +82,7 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-int has_duplicate(t_stack *stack, int num)
+int	has_duplicate(t_stack *stack, int num)
 {
 	t_stack	*head;
 

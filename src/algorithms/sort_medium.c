@@ -6,13 +6,12 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 11:08:48 by ajoao             #+#    #+#             */
-/*   Updated: 2026/08/14 21:30:28 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/15 12:29:12 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-// Calcula a raiz quadrada aproximada de forma compacta
 static int	ft_sqrt(int nb)
 {
 	int	i;
@@ -25,7 +24,6 @@ static int	ft_sqrt(int nb)
 	return (i - 1);
 }
 
-// Fase 1: Envia os elementos para a Stack B usando a janela móvel (Chunks)
 static void	push_to_b_chunks(t_program *program, int chunk_size)
 {
 	int	i;
@@ -49,7 +47,6 @@ static void	push_to_b_chunks(t_program *program, int chunk_size)
 	}
 }
 
-// Fase 2: Puxa de volta para a Stack A, trazendo sempre o maior de cada vez
 static void	pull_to_a_ordered(t_program *program)
 {
 	t_stack	*max_node;
@@ -73,7 +70,6 @@ static void	pull_to_a_ordered(t_program *program)
 	}
 }
 
-// Função principal do Medium Algorithm O(n√n) - Ambas as sub-funções passam na Norme
 void	sort_medium(t_program *program)
 {
 	int	chunk_size;

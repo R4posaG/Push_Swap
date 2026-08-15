@@ -6,7 +6,7 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 21:28:49 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/14 21:28:50 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/15 12:19:30 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	print_text(char *before, int value, char *after)
 
 static char	*adaptive_complexity(double dis)
 {
-	if (dis < 20.0)
+	if (dis < 0.2)
 		return ("Adaptive / O(n^2)\n");
-	else if (dis < 50.0)
+	else if (dis < 0.5)
 		return ("Adaptive / O(n√n))\n");
 	else
 		return ("Adaptive / O(n log n)\n");

@@ -6,15 +6,15 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 16:35:44 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/14 22:18:08 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/15 12:12:43 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int is_valid(char *arg)
+static int	is_valid(char *arg)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (arg[i] == '-' || arg[i] == '+')
@@ -26,11 +26,11 @@ static int is_valid(char *arg)
 		if (!ft_isdigit(arg[i]))
 			return (0);
 		i++;
-	}	
+	}
 	return (1);
 }
 
-static int process_argument(char *arg, t_program *program)
+static int	process_argument(char *arg, t_program *program)
 {
 	long	num;
 	t_stack	*new_node;
@@ -54,13 +54,13 @@ int	parse_arguments(int argc, char **argv, t_program *program)
 {
 	int		i;
 	int		j;
-	char    **args;
+	char	**args;
 
 	i = 1 + count_flags(argc, argv);
 	while (i < argc)
 	{
 		args = ft_split(argv[i], ' ');
-    	if (!args || !args[0])
+		if (!args || !args[0])
 			return (free_matrix(args), 0);
 		j = 0;
 		while (args[j])

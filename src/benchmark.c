@@ -6,7 +6,7 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 21:28:28 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/14 22:22:52 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/15 12:27:06 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,28 @@
 
 static char	*get_op_name(t_op op)
 {
-	if (op == SA) return ("sa");
-	if (op == SB) return ("sb");
-	if (op == SS) return ("ss");
-	if (op == PA) return ("pa");
-	if (op == PB) return ("pb");
-	if (op == RA) return ("ra");
-	if (op == RB) return ("rb");
-	if (op == RR) return ("rr");
-	if (op == RRA) return ("rra");
-	if (op == RRB) return ("rrb");
-	if (op == RRR) return ("rrr");
+	if (op == SA)
+		return ("sa");
+	if (op == SB)
+		return ("sb");
+	if (op == SS)
+		return ("ss");
+	if (op == PA)
+		return ("pa");
+	if (op == PB)
+		return ("pb");
+	if (op == RA)
+		return ("ra");
+	if (op == RB)
+		return ("rb");
+	if (op == RR)
+		return ("rr");
+	if (op == RRA)
+		return ("rra");
+	if (op == RRB)
+		return ("rrb");
+	if (op == RRR)
+		return ("rrr");
 	return ("");
 }
 
@@ -32,9 +43,9 @@ static void	print_disorder(double disorder)
 {
 	int	whole;
 	int	decimals;
- 
+
 	whole = (int)disorder;
-	decimals = (int)((disorder - whole) * 100.0 + 0.5); // 0.5 serve para arredondar para cima
+	decimals = (int)((disorder - whole) * 100.0 + 0.5);
 	if (decimals == 100)
 	{
 		decimals = 0;
@@ -53,7 +64,7 @@ static void	print_strategy(t_program *program)
 	ft_putstr_fd(strategy_name(program), 2);
 }
 
-static void print_total_ops(t_program *program)
+static void	print_total_ops(t_program *program)
 {
 	int	i;
 
@@ -84,7 +95,7 @@ void	display_benchmark(t_program *program)
 {
 	if (!program)
 		return ;
-	print_disorder(program->disorder);
+	print_disorder(program->disorder * 100);
 	print_strategy(program);
 	print_total_ops(program);
 }

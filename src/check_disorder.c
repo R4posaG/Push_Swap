@@ -6,18 +6,18 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 18:43:56 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/14 21:29:38 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/15 12:09:03 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-double subject_disorder(t_stack **stack_a)
+double	subject_disorder(t_stack **stack_a)
 {
 	long	mistakes;
 	long	total_pairs;
 	t_stack	*current;
-	t_stack *next;
+	t_stack	*next;
 
 	if (!stack_a || !*stack_a || (*stack_a)->next == *stack_a)
 		return (0.0);

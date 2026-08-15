@@ -6,11 +6,11 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 21:29:07 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/14 23:31:48 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/15 12:21:53 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	apply_strategy(t_program *program)
 {
@@ -18,8 +18,7 @@ void	apply_strategy(t_program *program)
 
 	if (!program)
 		return ;
-	disorder = subject_disorder(&program->stack_a);
-	program->disorder = disorder * 100.0;
+	program->disorder = subject_disorder(&program->stack_a);
 	if (program->size_a <= 5)
 	{
 		sort_small(program);

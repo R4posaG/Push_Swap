@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/15 12:31:00 by hjacinto          #+#    #+#             */
+/*   Updated: 2026/08/15 12:33:36 by hjacinto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -22,22 +34,21 @@ typedef enum e_op
 	OP_COUNT
 }	t_op;
 
-
 typedef enum e_strategy
 {
 	ADAPTIVE,
 	SIMPLE,
 	MEDIUM,
 	COMPLEX
-}			t_strategy;
+}	t_strategy;
 
 typedef struct s_stack
 {
-    int             value;
-    int             index;
-    struct s_stack  *next;
-    struct s_stack  *prev;
-}   				t_stack;
+	int				value;
+	int				index;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}					t_stack;
 
 typedef struct s_program
 {
@@ -63,7 +74,7 @@ int		has_duplicate(t_stack *stack, int num);
 void	free_matrix(char **matrix);
 long	ft_atol(const char *str);
 void	print_error(void);
-int	ft_strcmp(const char *s1, const char *s2);
+int		ft_strcmp(const char *s1, const char *s2);
 
 /* parsing.c */
 int		parse_arguments(int argc, char **argv, t_program *program);
@@ -123,6 +134,6 @@ void	print_text(char *before, int value, char *after);
 char	*strategy_name(t_program *program);
 
 /* main.c */
-int	main(int argc, char **argv);
+int		main(int argc, char **argv);
 
 #endif
