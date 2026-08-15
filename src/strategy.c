@@ -6,7 +6,7 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 21:29:07 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/15 12:21:53 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/15 12:46:05 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	apply_strategy(t_program *program)
 	}
 	if (program->strategy == ADAPTIVE)
 	{
-		if (disorder < 0.2)
+		if (program->disorder < 0.2)
 			sort_simple(program);
-		else if (disorder < 0.5)
+		else if (program->disorder < 0.5)
 			sort_medium(program);
 		else
 			sort_complex(program);
