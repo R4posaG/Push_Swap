@@ -6,7 +6,7 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 21:29:07 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/15 12:46:05 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/15 12:47:03 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	apply_strategy(t_program *program)
 {
-	double	disorder;
-
 	if (!program)
 		return ;
 	program->disorder = subject_disorder(&program->stack_a);
