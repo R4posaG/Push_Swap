@@ -1,4 +1,4 @@
-# *This project has been created as part of the 42 curriculum by hjacinto, ajoao.*
+*This project has been created as part of the 42 curriculum by hjacinto, ajoao.*
 
 # Push_swap
 
@@ -176,7 +176,6 @@ Artificial Intelligence tools were used exclusively as learning, debugging, and 
 AI assistance was used for:
 
 * reviewing stack pointer boundary conditions in circular doubly linked lists;
-* discussing disorder calculation formulas and threshold adjustments;
 * structuring the README formatting, tables, and documentation layout.
 
 All implementation code, algorithmic architecture, debugging, refactoring for the 25-line limit, and testing were manually completed by the authors.
@@ -220,7 +219,7 @@ This project helped develop knowledge about:
 * Advanced linked list manipulation and pointer management in C;
 * Algorithm selection trade-offs based on input characteristics and disorder metrics;
 * Space and time complexity optimization under constrained instruction sets;
-* Clean CLI design using modular flag parsing and benchmarking tools.
+* Modular flag parsing and benchmarking tools.
 
 ---
 
@@ -228,5 +227,3 @@ This project helped develop knowledge about:
 
 * **hjacinto** — Parsing, Operations, Algorithms
 * **ajoao** — Operations, Algorithms, README
-
-42 School Students
