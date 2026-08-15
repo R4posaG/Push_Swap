@@ -6,7 +6,7 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 17:25:57 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/03 19:34:46 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/15 15:17:06 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ static void	insert_dest(t_stack **dest, t_stack *node)
 	}
 }
 
-// Retorna 1 se moveu o nó com sucesso, 0 se a stack de origem estiver vazia
 static int	push(t_stack **src, t_stack **dest)
 {
 	t_stack	*node_to_move;

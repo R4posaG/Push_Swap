@@ -6,7 +6,7 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 17:30:38 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/03 19:35:20 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/15 15:16:52 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,3 @@ void	rrr(t_program *program)
 	else if (rev_b)
 		regist_operation(program, RRB, "rrb\n");
 }
-
-/*
-	if (!program)
-		return ;
-	if (program->stack_a && program->stack_a->next != program->stack_a
-		&& program->stack_b && program->stack_b->next != program->stack_b)
-	{
-		rev_rotate(&program->stack_a);
-		rev_rotate(&program->stack_b);
-		regist_operation(program, RRR, "rrr\n");
-*/

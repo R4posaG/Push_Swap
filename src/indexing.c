@@ -6,13 +6,12 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 21:28:58 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/14 21:28:59 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/15 15:17:26 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-// Atribui a cada nó um índice de 0 a N-1 com base no seu valor (19 linhas)
 void	assign_indices(t_stack *stack)
 {
 	t_stack	*current;
