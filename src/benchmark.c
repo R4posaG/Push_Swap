@@ -6,7 +6,7 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 21:28:28 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/15 12:27:06 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/15 14:36:13 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ static void	print_total_ops(t_program *program)
 	int	i;
 
 	print_text("[bench] total_ops: ", program->total_ops, "\n");
-	i = 0;
 	ft_putstr_fd("[bench] ", 2);
+	i = 0;
 	while (i < 5)
 	{
 		ft_putstr_fd(get_op_name(i), 2);
