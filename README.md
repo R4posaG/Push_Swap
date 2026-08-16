@@ -131,6 +131,9 @@ make fclean # Removes object files and the push_swap binary
 make re     # Executes fclean and rebuilds everything
 ```
 
+This builds `libft` first, then compiles `push_swap` against it. Both are
+compiled with `-Wall -Wextra -Werror`.
+
 ### Usage
 
 Run `push_swap` by passing a list of integers as individual arguments or enclosed in a string:
@@ -231,5 +234,5 @@ This project helped develop knowledge about:
 
 ## Authors
 
-* **hjacinto** — Parsing, Operations, Algorithms
+* **hjacinto** — Parsing, Operations, Algorithms, README
 * **ajoao** — Operations, Algorithms, README
