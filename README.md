@@ -1,6 +1,6 @@
 *This project has been created as part of the 42 curriculum by hjacinto, ajoao.*
 
-# Push_swap
+# Push_Swap
 
 ## Description
 
@@ -64,10 +64,10 @@ The program manipulates stacks using only the following 11 instructions:
 | `src/stack_utils.c` | Creation, addition, duplicate checks, sorted state verification, and memory freeing |
 | `src/indexing.c` | Index assignment to stack nodes ($0$ to $N-1$) for normalized processing |
 | `src/check_disorder.c` | Calculates the inversion ratio / structural disorder rate of Stack A |
-| `src/strategy.c` | Router for small stacks ($\\le 5$) and adaptive/explicit strategy assignment |
-| `src/operations/` | Implementation of stack operations (`push`, `swap`, `rotate`, `rev_rotate`, `register`) |
+| `src/strategy.c` | Selects the best sorting algorithm based on flags, disorder and stack size |
+| `src/operations/` | Implementation of stack operations (`push`, `swap`, `rotate`, `rev_rotate`) and  `register` wich prints every used operation to stdout. |
 | `src/algorithms/` | Implementation of sorting algorithms (`sort_small`, `sort_simple`, `sort_medium`, `sort_complex`) |
-| `src/benchmark.c` | Benchmark printing formatting for operation counts and disorder rates |
+| `src/benchmark.c` | Benchmark printing formatting for operation counts, strategy used and disorder rates |
 | `push_swap.h` | Prototypes, structures (`t_stack`, `t_program`), enums, and inclusions |
 | `Makefile` | Build compilation rules (`all`, `clean`, `fclean`, `re`) |
 
@@ -131,17 +131,17 @@ Run `push_swap` by passing a list of integers as individual arguments or enclose
 
 ```bash
 # Basic usage
-./push_swap 2 1 3 6 5 8
+./push_swap 2 1 3 -6 5 -8
 
 # Usage with a quoted string
-./push_swap "4 67 3 87 23"
+./push_swap "4 67 3 -87 23"
 
 # Benchmark mode
 ./push_swap --bench 3 1 2
 
 # Specifying explicit strategies
 ./push_swap --simple "5 4 3 2 1"
-./push_swap --bench --medium 9 4 2 1 7 5
+./push_swap --bench --medium 9 4 2 1 -7 5
 ./push_swap --complex 10 9 8 7 6 5 4 3 2 1
 ```
 
