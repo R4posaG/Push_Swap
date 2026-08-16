@@ -85,10 +85,10 @@ The program manipulates stacks using only the following 11 instructions:
 
 1. **Parsing & Validation**: Validates inputs, handles flags, checks for duplicates or overflow, and builds a circular doubly linked list (`t_stack`).
 2. **Index Normalization**: Converts raw integer values into normalized relative ranks ($0$ to $N-1$), enabling bitwise and range operations regardless of value scale.
-3. **Disorder Assessment**: Computes the inversion ratio $D = \frac{\text{mistakes}}{\text{total\_pairs}}$.
+3. **Disorder Assessment**: Computes the number of mistakes per all possible pairs of numbers.
 4. **Strategy Dispatcher**:
    * For $N \le 5$: Dedicated hardcoded/optimal routines (`sort_small`).
-   * For $N > 5$: Evaluates flags or uses adaptive routing based on disorder level $D$.
+   * For $N > 5$: Evaluates flags or uses adaptive routing based on disorder level.
 
 #### Data Structure Used
 
