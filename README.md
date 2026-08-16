@@ -71,43 +71,11 @@ The program manipulates stacks using only the following 11 instructions:
 | `src/indexing.c` | Index assignment to stack nodes ($0$ to $N-1$) for normalized processing |
 | `src/check_disorder.c` | Calculates the inversion ratio / structural disorder rate of Stack A |
 | `src/strategy.c` | Selects the best sorting algorithm based on flags, disorder and stack size |
+| `src/benchmark.c` | Benchmark printing formatting for operation counts, strategy used and disorder rates |
 | `src/operations/` | Implementation of stack operations (`push`, `swap`, `rotate`, `rev_rotate`) and  `register` wich prints every used operation to stdout. |
 | `src/algorithms/` | Implementation of sorting algorithms (`sort_small`, `sort_simple`, `sort_medium`, `sort_complex`) |
-| `src/benchmark.c` | Benchmark printing formatting for operation counts, strategy used and disorder rates |
 | `push_swap.h` | Prototypes, structures (`t_stack`, `t_program`), enums, and inclusions |
 | `Makefile` | Build compilation rules (`all`, `clean`, `fclean`, `re`) |
-
-Example directory structure:
-
-```text
-push_swap/
-├── push_swap.h
-├── Makefile
-├── libft/
-└── src/
-    ├── main.c
-    ├── parsing.c
-    ├── flags.c
-    ├── indexing.c
-    ├── stack_utils.c
-    ├── utils.c
-    ├── check_disorder.c
-    ├── strategy.c
-    ├── benchmark.c
-    ├── benchmark_utils.c
-    ├── operations/
-    │   ├── push.c
-    │   ├── swap.c
-    │   ├── rotate.c
-    │   ├── rev_rotate.c
-    │   └── register.c
-    └── algorithms/
-        ├── algorithms_utils.c
-        ├── sort_small.c
-        ├── sort_simple.c
-        ├── sort_medium.c
-        └── sort_complex.c
-```
 
 ---
 
