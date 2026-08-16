@@ -79,33 +79,11 @@ The program manipulates stacks using only the following 11 instructions:
 
 ---
 
-## Algorithm and Data Structure Choices
-
-#### Overall Architecture
-
-1. **Parsing & Validation**: Validates inputs, handles flags, checks for duplicates or overflow, and builds a circular doubly linked list (`t_stack`).
-2. **Index Normalization**: Converts raw integer values into normalized relative ranks ($0$ to $N-1$), enabling bitwise and range operations regardless of value scale.
-3. **Disorder Assessment**: Computes the number of mistakes per all possible pairs of numbers.
-4. **Strategy Dispatcher**:
-   * For $N \le 5$: Dedicated hardcoded/optimal routines (`sort_small`).
-   * For $N > 5$: Evaluates flags or uses adaptive routing based on disorder level.
-
-#### Data Structure Used
+### Data Structure Used
 
 A **Doubly Circular Linked List** (`t_stack`) with `next` and `prev` pointers:
 * Allows $O(1)$ operations for swaps, rotations (`ra`/`rb`), and reverse rotations (`rra`/`rrb`).
 * Provides convenient traversal in both directions when finding insertion targets or minimal steps.
-
----
-
-## Complexity Analysis
-
-| Strategy | Time Complexity | Space Complexity |
-| --- | --- | --- |
-| **Small Sort ($N \le 5$)** | $O(1)$ | $O(N)$ |
-| **Simple Sort** | $O(N^2)$ | $O(N)$ |
-| **Medium Sort (Chunks)** | $O(N\sqrt{N})$ | $O(N)$ |
-| **Complex Sort (Radix)** | $O(N \log N)$ | $O(N)$ |
 
 ---
 
