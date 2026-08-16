@@ -4,7 +4,7 @@
 
 ## Description
 
-The **push_swap** project consists of creating a highly efficient sorting algorithm that sorts data on a stack using a limited set of instructions, aiming for the lowest possible number of operations.
+The **push_swap** project consists of creating a set of highly efficient sorting algorithms that sort data on a stack using a limited set of instructions, aiming for the lowest possible number of operations.
 
 The program works with two stacks (`stack_a` and `stack_b`) and a restricted set of stack manipulation rules. It evaluates the degree of disorder of the input data and selects an optimized strategy to perform the sort.
 
@@ -31,6 +31,12 @@ The program features benchmarking capabilities and four explicit sorting strateg
 
 Additional features:
 * **Benchmark mode (`--bench`)**: Displays the disorder percentage, strategy used, total operations count, and breakdown per operation.
+
+		[bench] disorder: 73.33%
+		[bench] strategy: Adaptive / O(n log n)
+		[bench] total_ops: 29
+		[bench] sa:  0  sb:  0  ss:  0  pa:  11  pb:  11
+		[bench] ra:  7  rb:  0  rr:  0  rra:  0  rrb:  0  rrr:  0
 
 ---
 
