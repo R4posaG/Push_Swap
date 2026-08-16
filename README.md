@@ -30,7 +30,7 @@ The program features benchmarking capabilities and four explicit sorting strateg
 | **Adaptive** | `--adaptive` | Dynamic | Automatically measures disorder ratio ($D$) and routes execution: $D < 0.2 \to O(n^2)$, $0.2 \le D < 0.5 \to O(n\sqrt{n})$, $D \ge 0.5 \to O(n \log n)$. |
 
 Additional features:
-* **Benchmark mode (`--bench`)**: Displays the disorder percentage, strategy used, total operations count, and breakdown per operation.
+* **Benchmark mode (`--bench`)**: Displays the disorder percentage, strategy used, total operations count and breakdown per operation.
 
 		[bench] disorder: 73.33%
 		[bench] strategy: Adaptive / O(n log n)
@@ -111,14 +111,43 @@ push_swap/
 
 ---
 
+## Algorithm and Data Structure Choices
+
+#### Overall Architecture
+
+1. **Parsing & Validation**: Validates inputs, handles flags, checks for duplicates or overflow, and builds a circular doubly linked list (`t_stack`).
+2. **Index Normalization**: Converts raw integer values into normalized relative ranks ($0$ to $N-1$), enabling bitwise and range operations regardless of value scale.
+3. **Disorder Assessment**: Computes the inversion ratio $D = \frac{\text{mistakes}}{\text{total\_pairs}}$.
+4. **Strategy Dispatcher**:
+   * For $N \le 5$: Dedicated hardcoded/optimal routines (`sort_small`).
+   * For $N > 5$: Evaluates flags or uses adaptive routing based on disorder level $D$.
+
+#### Data Structure Used
+
+A **Doubly Circular Linked List** (`t_stack`) with `next` and `prev` pointers:
+* Allows $O(1)$ operations for swaps, rotations (`ra`/`rb`), and reverse rotations (`rra`/`rrb`).
+* Provides convenient traversal in both directions when finding insertion targets or minimal steps.
+
+---
+
+## Complexity Analysis
+
+| Strategy | Time Complexity | Space Complexity |
+| --- | --- | --- |
+| **Small Sort ($N \le 5$)** | $O(1)$ | $O(N)$ |
+| **Simple Sort** | $O(N^2)$ | $O(N)$ |
+| **Medium Sort (Chunks)** | $O(N\sqrt{N})$ | $O(N)$ |
+| **Complex Sort (Radix)** | $O(N \log N)$ | $O(N)$ |
+
+---
+
 ## Instructions
 
 ### Requirements
 
 * GCC / Clang
 * Linux / macOS
-* Standard C library
-* 42 Norm compliant code (Norminette)
+
 
 ### Compilation
 
@@ -166,6 +195,7 @@ Common test cases handled:
 * **Already sorted lists**: Outputs 0 operations.
 * **Small sets**: 2, 3, 4, and 5 numbers sorted within optimal operation limits.
 * **Large sets**: 100 and 500 numbers validated for operation efficiency across medium and complex strategies.
+* **No memory leaks**: All allocated memory is properly freed and protected.
 
 ---
 
@@ -174,61 +204,15 @@ Common test cases handled:
 ### Documentation and References
 
 * 42 push_swap subject
-* Sorting Algorithms & Computational Complexity ($O(n^2)$, $O(n\sqrt{n})$, $O(n \log n)$)
-* Radix Sort and Bitwise Operations in C
-* Doubly Circular Linked Lists in C
+* A Common-Sense Guide to Data Structures and Algorithms by Jay Wengrow
+* LINGUAGEM C by Luís Damas
 
 ## AI Usage
 
 Artificial Intelligence tools were used exclusively as learning, debugging, and documentation aids.
 
-AI assistance was used for:
-
-* reviewing stack pointer boundary conditions in circular doubly linked lists;
-* structuring the README formatting, tables, and documentation layout.
-
-All implementation code, algorithmic architecture, debugging, refactoring for the 25-line limit, and testing were manually completed by the authors.
-
----
-
-## Algorithm and Data Structure Choices
-
-#### Overall Architecture
-
-1. **Parsing & Validation**: Validates inputs, handles flags, checks for duplicates or overflow, and builds a circular doubly linked list (`t_stack`).
-2. **Index Normalization**: Converts raw integer values into normalized relative ranks ($0$ to $N-1$), enabling bitwise and range operations regardless of value scale.
-3. **Disorder Assessment**: Computes the inversion ratio $D = \frac{\text{mistakes}}{\text{total\_pairs}}$.
-4. **Strategy Dispatcher**:
-   * For $N \le 5$: Dedicated hardcoded/optimal routines (`sort_small`).
-   * For $N > 5$: Evaluates flags or uses adaptive routing based on disorder level $D$.
-
-#### Data Structure Used
-
-A **Doubly Circular Linked List** (`t_stack`) with `next` and `prev` pointers:
-* Allows $O(1)$ operations for swaps, rotations (`ra`/`rb`), and reverse rotations (`rra`/`rrb`).
-* Provides convenient traversal in both directions when finding insertion targets or minimal steps.
-
----
-
-## Complexity Analysis
-
-| Strategy | Time Complexity | Space Complexity |
-| --- | --- | --- |
-| **Small Sort ($N \le 5$)** | $O(1)$ | $O(N)$ |
-| **Simple Sort** | $O(N^2)$ | $O(N)$ |
-| **Medium Sort (Chunks)** | $O(N\sqrt{N})$ | $O(N)$ |
-| **Complex Sort (Radix)** | $O(N \log N)$ | $O(N)$ |
-
----
-
-## Learning Objectives
-
-This project helped develop knowledge about:
-
-* Advanced linked list manipulation and pointer management in C;
-* Algorithm selection trade-offs based on input characteristics and disorder metrics;
-* Space and time complexity optimization under constrained instruction sets;
-* Modular flag parsing and benchmarking tools.
+AI assistance was used for structuring the README formatting, tables, and documentation layout.
+All implementation code, algorithmic architecture, debugging, refactoring for the norm and testing were manually completed by the authors.
 
 ---
 
