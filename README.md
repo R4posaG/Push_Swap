@@ -11,7 +11,7 @@ The program works with two stacks (`stack_a` and `stack_b`) and a restricted set
 This project provides a deeper understanding of:
 
 * Data structures (doubly circular linked lists) and stack management;
-* Algorithm complexity analysis ($O(n^2)$, $O(n\sqrt{n})$, and $O(n log n)$);
+* Algorithm complexity analysis ( $O(n^2)$, $O(n\sqrt{n})$, and $O(n$ log $n)$ );
 * Sorting strategies (Selection Sort, Chunks/Moving Window, LSD Radix Sort);
 * Adaptive algorithm selection based on structural disorder;
 * Parsing, input validation, and flag handling in C.
