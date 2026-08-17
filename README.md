@@ -18,7 +18,7 @@ This project provides a deeper understanding of:
 
 ---
 
-### Features & Strategies
+## Features & Strategies
 
 The program features benchmarking capabilities and four explicit sorting strategies that can be executed directly or selected adaptively:
 
@@ -60,7 +60,7 @@ The program manipulates stacks using only the following 11 instructions:
 
 ---
 
-### Project Structure
+## Project Structure
 
 | File / Directory | Description |
 | --- | --- |
@@ -79,11 +79,44 @@ The program manipulates stacks using only the following 11 instructions:
 
 ---
 
-### Data Structure Used
+## Data Structure Used
 
 A **Doubly Circular Linked List** (`t_stack`) with `next` and `prev` pointers:
 * Allows $O(1)$ operations for swaps, rotations (`ra`/`rb`), and reverse rotations (`rra`/`rrb`).
 * Provides convenient traversal in both directions when finding insertion targets or minimal steps.
+
+---
+
+## Algorithms Used
+
+### Simple Algorithm: Selection Sort / Element Extraction
+  The algorithm scans `stack_a` to find the absolute minimum element using `find_min`. It calculates the shortest rotation path (choosing dynamically between `ra` and `rra` based on the element's position relative to the middle of the stack). Once the minimum element reaches the top, it is pushed to `stack_b` via `pb`. 
+  This loop repeats until only 3 elements remain in `stack_a`, which are instantly sorted using a hardcoded, maximum 2-operation base case (`sort_three`). Finally, all elements are pushed back to `stack_a` via `pa` in perfect ascending order.
+
+---
+
+### Medium Algorithm: Chunk-Based Sorting
+This strategy divides the normalized stack indexes into $\sqrt{n}$ dynamic blocks (chunks). To achieve optimal performance and minimize `ra`/`rra` tracking costs in `stack_a`, the theoretical chunk size is mathematically scaled by a factor of `1.5` using integer arithmetic (`chunk_size = ft_sqrt(size) * 15 / 10`).
+  
+  The algorithm uses a sliding window:
+  * Elements with indexes within the current window are pushed immediately to `stack_b` (`pb`).
+  * Elements smaller than the window's starting index are pushed and rotated to the bottom of `stack_b` (`pb` followed by `rb`) to form pre-sorted sub-chunks.
+  * The window slides forward as elements are cleared.
+
+Once `stack_a` is empty, the algorithm efficiently pulls elements back from `stack_b` to `stack_a` by always rotating the maximum remaining element to the top via the shortest path.
+
+---
+
+### Complex Algorithm: Bitwise Radix Sort
+
+This algorithm operates on the binary representation of the pre-assigned normalized element indexes (from `0` to `size_a - 1`). By sorting the structural indexes instead of raw values, it safely handles negative numbers and large integer spacing while minimizing the required bit-width.
+  
+  The algorithm loops through each bit digit (from the least significant bit to the most significant bit):
+  * It performs a full pass of the stack. If the bit at the current position `i` of the top element's index is `0`, it pushes the node to `stack_b` (`pb`).
+  * If the bit is `1`, it rotates the element to the back of `stack_a` (`ra`).
+  * After checking all elements for the current bit, it empties `stack_b` back into `stack_a` (`pa`), shifting all `0`-bit elements to the top for that digit column.
+  
+  By the end of the loop everything will be sorted.
 
 ---
 
