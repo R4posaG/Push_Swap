@@ -4,14 +4,14 @@
 
 ## Description
 
-The **push_swap** project consists of creating a set of highly efficient sorting algorithms that sort data on a stack using a limited set of instructions, aiming for the lowest possible number of operations.
+This project consists of creating a set of highly efficient sorting algorithms that sort data on a stack using a limited set of instructions, aiming for the lowest possible number of operations.
 
 The program works with two stacks (`stack_a` and `stack_b`) and a restricted set of stack manipulation rules. It evaluates the degree of disorder of the input data and selects an optimized strategy to perform the sort.
 
 This project provides a deeper understanding of:
 
 * Data structures (doubly circular linked lists) and stack management;
-* Algorithm complexity analysis ($O(n^2)$, $O(n\sqrt{n})$, and $O(n \log n)$);
+* Algorithm complexity analysis ($O(n^2)$, $O(n\sqrt{n})$, and $O(n$ log $n)$);
 * Sorting strategies (Selection Sort, Chunks/Moving Window, LSD Radix Sort);
 * Adaptive algorithm selection based on structural disorder;
 * Parsing, input validation, and flag handling in C.
