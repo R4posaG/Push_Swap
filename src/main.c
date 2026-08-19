@@ -6,7 +6,7 @@
 /*   By: hjacinto <hjacinto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 16:42:21 by hjacinto          #+#    #+#             */
-/*   Updated: 2026/08/08 17:19:25 by hjacinto         ###   ########.fr       */
+/*   Updated: 2026/08/15 16:01:45 by hjacinto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	main(int argc, char **argv)
 		return (0);
 	initialize_program(&program);
 	i = count_flags(argc, argv);
+	if (i == argc - 1)
+		return (0);
 	while (i > 0)
 		read_flags(argv[i--], &program);
 	if (!parse_arguments(argc, argv, &program))
